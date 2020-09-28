@@ -22,10 +22,7 @@ public class MainActivity extends AppCompatActivity {
     final String SERVER_IP = "192.168.0.201";
     final int PORT = 18765;
     public Button connectBtn;
-    public Button goBtn;
     public static TextView datatext;
-    public static TextView recvCount;
-
     public static InputStream dataInput;
     public static OutputStream dataOutput;
     public static Socket socket;
@@ -37,11 +34,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         connectBtn = findViewById(R.id.btn01);
         datatext = findViewById(R.id.recvText);
-        recvCount = findViewById(R.id.recvByte);
         toast = Toast.makeText(this, "READY", Toast.LENGTH_SHORT);
         toast.show();
         toast = Toast.makeText(this, "수신 시작", Toast.LENGTH_SHORT);
-        recvCount.setText("check");
         connectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
                             try {
                                 connectBtn.setEnabled(false);
                                 connectBtn.setVisibility(View.GONE);
-                                recvCount.setText("cwh");
                             } catch (Exception e1) {
                                 Log.d("btn err", "버튼에러");
                             }
